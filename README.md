@@ -65,8 +65,6 @@ Pandas, NumPy
 
 Pickle (model serialization)
 
-MySQL/MongoDB (data management)
-
 Matplotlib/Seaborn (EDA)
 
 📁 Folder Structure
