@@ -253,15 +253,15 @@ def main():
 
        @st.cache_resource
        def load_resources():
-           with open(r"C:\Tourism\combined_encoder.pkl", "rb") as f:
+           with open("combined_encoder.pkl", "rb") as f:
                encoders = pickle.load(f)
-           with open(r"C:\Tourism\final_dummy_columns.pkl", "rb") as f:
+           with open("final_dummy_columns.pkl", "rb") as f:
                final_features = pickle.load(f)  # Load your final dummy columns here
-           with open(r"C:\Tourism\attraction_rating_model.pkl", "rb") as f:
+           with open("attraction_rating_model.pkl", "rb") as f:
                model = pickle.load(f)
-           with open(r"C:\Tourism\scaler.pkl", "rb") as f:
+           with open("scaler.pkl", "rb") as f:
                scaler = pickle.load(f)
-           df = pd.read_csv(r"C:\Tourism\Added_data.csv")
+           df = pd.read_csv("Added_data.csv")
            return encoders, final_features, model, scaler, df
 
        encoders, final_features, model, scaler, df = load_resources()
