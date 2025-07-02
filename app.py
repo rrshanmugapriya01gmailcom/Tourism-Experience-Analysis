@@ -70,7 +70,7 @@ def main():
         st.markdown(css, unsafe_allow_html=True)
 
     if menu == "Home":
-        set_bg_image(r"C:\Tourism\assetsbanner.png")
+        set_bg_image(assetsbanner.jpg")
         st.markdown(
             """
             <div style='display: flex; justify-content: space-between; align-items: center; padding: 10px 30px; background-color: rgba(0,0,0,0.4); border-bottom: 1px solid #fff;'>
