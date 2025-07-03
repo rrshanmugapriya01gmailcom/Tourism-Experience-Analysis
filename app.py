@@ -262,7 +262,11 @@ def main():
                url = f"https://drive.google.com/uc?id={file_id}"
                gdown.download(url, model_path, quiet=False)
 
-
+           scaler_path = "scaler.pkl"
+           if not os.path.exists(scaler_path):
+               file_id = "1V0AnZK8yrAui3SU7YX6DRL2goLvc4vZf"
+               url = f"https://drive.google.com/uc?id={file_id}"
+               gdown.download(url, scaler_path, quiet=False)
          # ✅ Load resources
            with open("combined_encoder.pkl", "rb") as f:
                encoders = pickle.load(f)
@@ -273,8 +277,7 @@ def main():
            with open("attraction_rating_model.pkl", "rb") as f:
                model = pickle.load(f)
 
-           with open("scaler.pkl", "rb") as f:
-               scaler = pickle.load(f)
+         
 
            df = pd.read_csv("Added_data.csv")
            return encoders, final_features, model, scaler, df 
