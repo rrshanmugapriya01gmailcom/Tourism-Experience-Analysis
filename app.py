@@ -258,7 +258,7 @@ def main():
          # ✅ Download model from Google Drive if not present
          model_path = "attraction_rating_model.pkl"
          if not os.path.exists(model_path):
-            file_id = "PASTE_YOUR_FILE_ID_HERE"  # 👈 Replace this
+            file_id = "1ABCdEfGhIJKLmnopQRStuvWxYZ"  
             url = f"https://drive.google.com/uc?id={file_id}"
             gdown.download(url, model_path, quiet=False)
 
