@@ -385,6 +385,22 @@ def main():
 # ✅ Load all resources with caching
        @st.cache_resource
        def load_visitmode_resources():
+            encoder_path = "visit_features_scaler.pkl"
+            if not os.path.exists(encoder_path):
+                file_id = "1UUa7m5vKtD6Mi0yC2flnYFBKcu0wLqvO"
+                url = f"https://drive.google.com/uc?id={file_id}"
+                gdown.download(url, encoder_path, quiet=False)
+            label_encoder_path = "visitmode_label_encoder.pkl"
+            if not os.path.exists(label_encoder_path):
+                 file_id = "1D3mjudf-v0tOD2q17sbGmLPJ3ZehMOQl"
+                 url = f"https://drive.google.com/uc?id={file_id}"
+                 gdown.download(url, label_encoder_path, quiet=False)
+            visit_model_path = "random_forest_visitmode_model.pkl"
+            if not os.path.exists(visit_model_path):
+                 file_id = "1JqQ9vWEA7-5PB61iZx5Xoh1Oh8FegAzF"
+                 url = f"https://drive.google.com/uc?id={file_id}"
+                 gdown.download(url, visit_model_path, quiet=False)
+
             with open("visit_features_scaler.pkl", "rb") as f:
                 scaler = pickle.load(f)
             with open("visitmode_label_encoder.pkl", "rb") as f:
@@ -528,12 +544,6 @@ def main():
 
 # Generate Recommendations
         if st.sidebar.button("Get Recommendations"):
-           
-            if rec_type == "Content-Based":
-                recs = content_based_recommendations(attraction)
-        elif rec_type == "Collaborative":
-            recs = collaborative_recommendations(user_id)
-        else:
             recs = hybrid_recommendations(user_id, attraction)
 
         st.subheader(f"🔍 Top Recommendations ({rec_type})")
