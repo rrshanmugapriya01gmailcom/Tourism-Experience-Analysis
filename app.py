@@ -257,7 +257,7 @@ def main():
                encoders = pickle.load(f)
            with open("final_dummy_columns.pkl", "rb") as f:
                final_features = pickle.load(f)  # Load your final dummy columns here
-           with open("attraction_rating_model.pkl", "rb") as f:
+           with open("attraction_rating_model.pkl.gz", "rb") as f:
                model = pickle.load(f)
            with open("scaler.pkl", "rb") as f:
                scaler = pickle.load(f)
