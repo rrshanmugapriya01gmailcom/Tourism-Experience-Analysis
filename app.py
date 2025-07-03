@@ -276,8 +276,8 @@ def main():
                scaler = pickle.load(f)
 
            df = pd.read_csv("Added_data.csv")
-
-           encoders, final_features, model, scaler, df = load_resources()
+           return encoders, final_features, model, scaler, df 
+       encoders, final_features, model, scaler, df = load_resources()
 
 # Create two columns for full height layout
        col1, col2 = st.columns([1, 3], gap="small")
