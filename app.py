@@ -257,27 +257,27 @@ def main():
        def load_resources():
          # ✅ Download model from Google Drive if not present
            model_path = "attraction_rating_model.pkl"
-       if not os.path.exists(model_path):
-           file_id = "1ABCdEfGhIJKLmnopQRStuvWxYZ"  
-           url = f"https://drive.google.com/uc?id={file_id}"
-           gdown.download(url, model_path, quiet=False)
+           if not os.path.exists(model_path):
+               file_id = "1ABCdEfGhIJKLmnopQRStuvWxYZ"  
+               url = f"https://drive.google.com/uc?id={file_id}"
+               gdown.download(url, model_path, quiet=False)
 
          # ✅ Load resources
-       with open("combined_encoder.pkl", "rb") as f:
-           encoders = pickle.load(f)
+           with open("combined_encoder.pkl", "rb") as f:
+               encoders = pickle.load(f)
 
-       with open("final_dummy_columns.pkl", "rb") as f:
-           final_features = pickle.load(f)
+           with open("final_dummy_columns.pkl", "rb") as f:
+               final_features = pickle.load(f)
 
-       with open("attraction_rating_model.pkl", "rb") as f:
-           model = pickle.load(f)
+           with open("attraction_rating_model.pkl", "rb") as f:
+               model = pickle.load(f)
 
-       with open("scaler.pkl", "rb") as f:
-           scaler = pickle.load(f)
+           with open("scaler.pkl", "rb") as f:
+               scaler = pickle.load(f)
 
-       df = pd.read_csv("Added_data.csv")
+           df = pd.read_csv("Added_data.csv")
 
-       encoders, final_features, model, scaler, df = load_resources()
+           encoders, final_features, model, scaler, df = load_resources()
 
 # Create two columns for full height layout
        col1, col2 = st.columns([1, 3], gap="small")
