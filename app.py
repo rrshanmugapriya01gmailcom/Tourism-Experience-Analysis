@@ -277,7 +277,9 @@ def main():
            with open("attraction_rating_model.pkl", "rb") as f:
                model = pickle.load(f)
 
-         
+           with open("scaler.pkl", "rb") as f:
+               scaler = pickle.load(f)
+
 
            df = pd.read_csv("Added_data.csv")
            return encoders, final_features, model, scaler, df 
