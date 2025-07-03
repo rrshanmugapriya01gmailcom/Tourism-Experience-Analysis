@@ -285,8 +285,7 @@ def main():
        with col1:
     # Add CSS class for left column
            st.markdown('<div class="left-col">', unsafe_allow_html=True)
-           st.image(https://leticiamooney.com/2019/01/how-i-use-rating-systems/,
-           use_container_width=True)
+           
 
            st.markdown('</div>', unsafe_allow_html=True)
 
