@@ -536,8 +536,7 @@ def main():
 # ============ Streamlit UI =============
         st.title("🏖️ Tourism Recommendation System")
 
-# Sidebar
-        st.title("🏖️ Tourism Recommendation System")
+
 
 # Sidebar
         st.sidebar.header("🔧 Recommendation Settings")
