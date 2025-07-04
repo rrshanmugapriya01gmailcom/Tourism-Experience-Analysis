@@ -472,7 +472,7 @@ def main():
                 st.write(df_original.loc[idx])
 
     elif menu == "Recommendation System":
-        df = pd.read_csv("Tourism_preprocessed_data.csv")
+        df = pd.read_csv(r"C:\Tourism\Tourism_preprocessed_data.csv")
 
 # Prepare numeric features
         numeric_cols = [
@@ -537,21 +537,23 @@ def main():
         st.title("🏖️ Tourism Recommendation System")
 
 # Sidebar
-        st.sidebar.header("User Input")
+        st.title("🏖️ Tourism Recommendation System")
+
+# Sidebar
+        st.sidebar.header("🔧 Recommendation Settings")
         user_id = st.sidebar.selectbox("Select User ID", sorted(df["UserId"].unique()))
         attraction = st.sidebar.selectbox("Choose Attraction", sorted(df["Attraction"].unique()))
-        rec_type = st.sidebar.radio("Recommendation Type", ["Content-Based", "Collaborative", "Hybrid"])
+        top_n = st.sidebar.slider("Number of Recommendations", 1, 10, 5)
 
 # Generate Recommendations
-        if st.sidebar.button("Get Recommendations"):
-            recs = hybrid_recommendations(user_id, attraction)
-
-        st.subheader(f"🔍 Top Recommendations ({rec_type})")
-        if recs:
-            for i, rec in enumerate(recs, 1):
-                st.write(f"{i}. {rec}")
-        else:
-            st.warning("No recommendations found.")
+        if st.sidebar.button("🔍 Get Hybrid Recommendations"):
+            recs = hybrid_recommendations(user_id, attraction, top_n=top_n)
+            st.subheader("✅ Top Recommendations")
+            if recs:
+                for i, rec in enumerate(recs, 1):
+                  st.write(f"{i}. {rec}")
+            else:
+                st.warning("No recommendations found.")
 
 
 if __name__ == "__main__":
